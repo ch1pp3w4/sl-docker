@@ -1,0 +1,32 @@
+# Use postgres/example user/password credentials
+version: '1.0'
+
+services:
+
+  db:
+    image: psql02
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./Dockerfile.psql
+    ports:
+      - 8032:5432
+      # set shared memory limit when using docker-compose
+    #shm_size: 128mb
+      # or set shared memory limit when deploy via swarm stack
+      #volumes:
+      #  - type: tmpfs
+      #    target: /dev/shm
+      #    tmpfs:
+      #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_USER: sqlledger
+      POSTGRES_PASSWORD: sqlledger
+
+# use psql as client instead of adminer, at east for now
+
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - 8080:8080
