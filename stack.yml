@@ -4,7 +4,7 @@ version: '1.0'
 services:
 
   db:
-    image: psql02
+    image: sl-psql
     restart: unless-stopped
     build:
       context: .
