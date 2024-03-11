@@ -5,6 +5,7 @@ services:
 
   db:
     image: sl-psql
+    container_name: sl-db
     restart: unless-stopped
     build:
       context: .
@@ -23,6 +24,23 @@ services:
       POSTGRES_USER: sqlledger
       POSTGRES_PASSWORD: sqlledger
 
+  app:
+    image: sl-app
+    container_name: sl-app
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./Dockerfile.app
+    ports:
+      - 8080:80
+      # set shared memory limit when using docker-compose
+    #shm_size: 128mb
+      # or set shared memory limit when deploy via swarm stack
+      #volumes:
+      #  - type: tmpfs
+      #    target: /dev/shm
+      #    tmpfs:
+      #      size: 134217728 # 128*2^20 bytes = 128Mb
 # use psql as client instead of adminer, at east for now
 
 #  adminer:
