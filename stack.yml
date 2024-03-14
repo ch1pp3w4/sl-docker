@@ -1,50 +1,43 @@
-# Use postgres/example user/password credentials
-version: '1.0'
+version: '3.8'
 
 services:
 
   db:
-    image: sl-psql
-    container_name: sl-db
+    image: sl-psql:latest
+    container_name: sl.psql
     restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile.psql
+    networks:
+      sl-net:
+        ipv4_address: 172.25.0.2
     ports:
       - 8032:5432
-      # set shared memory limit when using docker-compose
-    #shm_size: 128mb
-      # or set shared memory limit when deploy via swarm stack
-      #volumes:
-      #  - type: tmpfs
-      #    target: /dev/shm
-      #    tmpfs:
-      #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
       POSTGRES_USER: sqlledger
       POSTGRES_PASSWORD: sqlledger
+      POSTGRES_DB: sqlledger
 
   app:
-    image: sl-app
-    container_name: sl-app
+    image: sl-app:latest
+    container_name: sl.app
     restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile.app
+    networks:
+      sl-net:
+        ipv4_address: 172.25.0.3
     ports:
       - 8080:80
-      # set shared memory limit when using docker-compose
-    #shm_size: 128mb
-      # or set shared memory limit when deploy via swarm stack
-      #volumes:
-      #  - type: tmpfs
-      #    target: /dev/shm
-      #    tmpfs:
-      #      size: 134217728 # 128*2^20 bytes = 128Mb
-# use psql as client instead of adminer, at east for now
+    depends_on: 
+      - db
 
-#  adminer:
-#    image: adminer
-#    restart: always
-#    ports:
-#      - 8080:8080
+networks:
+  sl-net:
+    name: sl-net
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
