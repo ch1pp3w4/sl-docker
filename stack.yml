@@ -17,6 +17,9 @@ services:
       POSTGRES_USER: sqlledger
       POSTGRES_PASSWORD: sqlledger
       POSTGRES_DB: sqlledger
+    volumes:
+#      - "./data:/var/lib/postgresql/data"
+     - db-data:/var/lib/postgresql/data
 
   app:
     image: sl-app:latest
@@ -39,3 +42,6 @@ networks:
     ipam:
       config:
         - subnet: 172.25.0.0/24
+
+volumes:
+  db-data: {}
