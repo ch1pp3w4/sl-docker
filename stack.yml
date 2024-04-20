@@ -4,7 +4,6 @@ services:
 
   db:
     image: sl-psql:latest
-    container_name: sl.psql
     restart: unless-stopped
     build:
       context: .
@@ -21,7 +20,6 @@ services:
 
   app:
     image: sl-app:latest
-    container_name: sl.app
     restart: unless-stopped
     build:
       context: .

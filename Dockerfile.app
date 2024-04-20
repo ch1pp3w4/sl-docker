@@ -3,6 +3,7 @@ FROM ubuntu:22.04
 ENV locale en_US
 ENV timezone Etc/UTC
 #
+ENV sql-ledger sql-ledger
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 apt-get -y install \
 acpid \
@@ -136,6 +137,7 @@ RUN chown -R www-data:www-data /var/www &&\
 
 #Perl Modul im Apache laden
 RUN a2enmod cgi.load  &&\
+  a2enmod cgi &&\
   a2ensite default-ssl  &&\
   service apache2 start &&\
   a2enmod ssl &&\
