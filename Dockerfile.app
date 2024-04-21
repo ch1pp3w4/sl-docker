@@ -2,8 +2,10 @@ FROM ubuntu:22.04
 #FROM sl-base:latest
 ENV locale en_US
 ENV timezone Etc/UTC
-#
-ENV sql-ledger sql-ledger
+ENV appname sql-ledger
+#https://github.com/ledger123/ledger123.git
+ENV sourcecode "https://github.com/ch1pp3w4/sql-ledger.git"
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 apt-get -y install \
 acpid \
@@ -89,26 +91,26 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-RUN git clone https://github.com/ledger123/ledger123.git /var/www/html/ledger123
+RUN git clone ${sourcecode} /var/www/html/sql-ledger
 
-RUN mkdir /var/www/html/ledger123/spool
+RUN mkdir /var/www/html/sql-ledger/spool
 
 #Load default users
-RUN cd /var/www/html/ledger123/users && wget http://www.sql-ledger-network.com/debian/demo_users.tar.gz --retr-symlinks=no && tar -xvf demo_users.tar.gz
+#RUN cd /var/www/html/sql-ledger/users && wget http://www.sql-ledger-network.com/debian/demo_users.tar.gz --retr-symlinks=no && tar -xvf demo_users.tar.gz
 #Load default Templates
-RUN cd /var/www/html/ledger123/ && wget http://www.sql-ledger-network.com/debian/demo_templates.tar.gz --retr-symlinks=no && tar -xvf demo_templates.tar.gz
+#RUN cd /var/www/html/sql-ledger/ && wget http://www.sql-ledger-network.com/debian/demo_templates.tar.gz --retr-symlinks=no && tar -xvf demo_templates.tar.gz
 
 #Change permissions for webserver
-RUN chown -hR www-data.www-data /var/www/html/ledger123/users /var/www/html/ledger123/templates /var/www/html/ledger123/css /var/www/html/ledger123/spool
+RUN chown -hR www-data.www-data /var/www/html/sql-ledger/users /var/www/html/sql-ledger/templates /var/www/html/sql-ledger/css /var/www/html/sql-ledger/spool
 
 ADD ./app/index.html /var/www/html/index.html
 
 RUN echo "AddHandler cgi-script .pl" >> /etc/apache2/apache2.conf && \
-echo "Alias /ledger123/ /var/www/html/ledger123/" >> /etc/apache2/apache2.conf && \
-echo "<Directory /var/www/html/ledger123>" >> /etc/apache2/apache2.conf && \
+echo "Alias /sql-ledger/ /var/www/html/sql-ledger/" >> /etc/apache2/apache2.conf && \
+echo "<Directory /var/www/html/sql-ledger>" >> /etc/apache2/apache2.conf && \
 echo "Options ExecCGI Includes FollowSymlinks" >> /etc/apache2/apache2.conf && \
 echo "</Directory>" >> /etc/apache2/apache2.conf && \
-echo "<Directory /var/www/html/ledger123/users>" >> /etc/apache2/apache2.conf && \
+echo "<Directory /var/www/html/sql-ledger/users>" >> /etc/apache2/apache2.conf && \
 echo "Order Deny,Allow" >> /etc/apache2/apache2.conf && \
 echo "Deny from All" >> /etc/apache2/apache2.conf && \
 echo "</Directory>" >> /etc/apache2/apache2.conf
@@ -159,5 +161,5 @@ RUN chmod +x /usr/local/bin/*.sh
 
 CMD ["/usr/local/bin/start.sh"]
 
-USER root
+#USER root
 
