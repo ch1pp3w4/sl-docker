@@ -1,9 +1,8 @@
 FROM ubuntu:22.04
-#FROM sl-base:latest
-ENV locale en_US
-ENV timezone Etc/UTC
-ENV appname sql-ledger
-#https://github.com/ledger123/ledger123.git
+
+ENV locale "en_US"
+ENV timezone "Etc/UTC"
+ENV appname "sql-ledger"
 ENV sourcecode "https://github.com/ch1pp3w4/sql-ledger.git"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
@@ -78,15 +77,15 @@ apt-get clean && \
 rm -rf /var/lib/apt/lists/*
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-apt-get -y install language-pack-en-base \
-texlive-lang-english \
---no-install-recommends && \
-apt-get clean && \
-rm -rf /var/lib/apt/lists/*
+  apt-get -y install language-pack-en-base \
+  texlive-lang-english \
+  --no-install-recommends && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen --purge en_US.UTF-8 && \
-locale-gen en_US.UTF-8 && \
-dpkg-reconfigure --frontend noninteractive locales
+  locale-gen en_US.UTF-8 && \
+  dpkg-reconfigure --frontend noninteractive locales
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
@@ -96,9 +95,9 @@ RUN git clone ${sourcecode} /var/www/html/sql-ledger
 RUN mkdir /var/www/html/sql-ledger/spool
 
 #Load default users
-#RUN cd /var/www/html/sql-ledger/users && wget http://www.sql-ledger-network.com/debian/demo_users.tar.gz --retr-symlinks=no && tar -xvf demo_users.tar.gz
+ADD ./app/users /var/www/html/sql-ledger/users/
 #Load default Templates
-#RUN cd /var/www/html/sql-ledger/ && wget http://www.sql-ledger-network.com/debian/demo_templates.tar.gz --retr-symlinks=no && tar -xvf demo_templates.tar.gz
+ADD ./app/templates /var/www/html/sql-ledger/templates/
 
 #Change permissions for webserver
 RUN chown -hR www-data.www-data /var/www/html/sql-ledger/users /var/www/html/sql-ledger/templates /var/www/html/sql-ledger/css /var/www/html/sql-ledger/spool
@@ -106,14 +105,14 @@ RUN chown -hR www-data.www-data /var/www/html/sql-ledger/users /var/www/html/sql
 ADD ./app/index.html /var/www/html/index.html
 
 RUN echo "AddHandler cgi-script .pl" >> /etc/apache2/apache2.conf && \
-echo "Alias /sql-ledger/ /var/www/html/sql-ledger/" >> /etc/apache2/apache2.conf && \
-echo "<Directory /var/www/html/sql-ledger>" >> /etc/apache2/apache2.conf && \
-echo "Options ExecCGI Includes FollowSymlinks" >> /etc/apache2/apache2.conf && \
-echo "</Directory>" >> /etc/apache2/apache2.conf && \
-echo "<Directory /var/www/html/sql-ledger/users>" >> /etc/apache2/apache2.conf && \
-echo "Order Deny,Allow" >> /etc/apache2/apache2.conf && \
-echo "Deny from All" >> /etc/apache2/apache2.conf && \
-echo "</Directory>" >> /etc/apache2/apache2.conf
+  echo "Alias /sql-ledger/ /var/www/html/sql-ledger/" >> /etc/apache2/apache2.conf && \
+  echo "<Directory /var/www/html/sql-ledger>" >> /etc/apache2/apache2.conf && \
+  echo "Options ExecCGI Includes FollowSymlinks" >> /etc/apache2/apache2.conf && \
+  echo "</Directory>" >> /etc/apache2/apache2.conf && \
+  echo "<Directory /var/www/html/sql-ledger/users>" >> /etc/apache2/apache2.conf && \
+  echo "Order Deny,Allow" >> /etc/apache2/apache2.conf && \
+  echo "Deny from All" >> /etc/apache2/apache2.conf && \
+  echo "</Directory>" >> /etc/apache2/apache2.conf
 
 # ADD Apache
 # Run the rest of the commands as the ``root`` user
@@ -132,17 +131,17 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
  
-RUN chown -R www-data:www-data /var/www &&\
-    chmod u+rwx,g+rx,o+rx /var/www &&\
-    find /var/www -type d -exec chmod u+rwx,g+rx,o+rx {} + &&\
-    find /var/www -type f -exec chmod u+rw,g+rw,o+r {} +
+RUN chown -R www-data:www-data /var/www && \
+  chmod u+rwx,g+rx,o+rx /var/www && \
+  find /var/www -type d -exec chmod u+rwx,g+rx,o+rx {} + && \
+  find /var/www -type f -exec chmod u+rw,g+rw,o+r {} +
 
 #Perl Modul im Apache laden
-RUN a2enmod cgi.load  &&\
-  a2enmod cgi &&\
-  a2ensite default-ssl  &&\
-  service apache2 start &&\
-  a2enmod ssl &&\
+RUN a2enmod cgi.load  && \
+  a2enmod cgi && \
+  a2ensite default-ssl  && \
+  service apache2 start && \
+  a2enmod ssl && \
   service apache2 restart
 
 RUN apachectl -v
@@ -160,6 +159,4 @@ ADD ./app/start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/*.sh
 
 CMD ["/usr/local/bin/start.sh"]
-
-#USER root
 
