@@ -14,9 +14,9 @@ services:
     ports:
       - 8032:5432
     environment:
-      POSTGRES_USER: sqlledger
-      POSTGRES_PASSWORD: sqlledger
-      POSTGRES_DB: sqlledger
+      POSTGRES_USER: sql-ledger
+      POSTGRES_PASSWORD: sql-ledger
+      POSTGRES_DB: template1
     volumes:
 #      - "./data:/var/lib/postgresql/data"
      - db-data:/var/lib/postgresql/data

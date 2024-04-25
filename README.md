@@ -6,7 +6,7 @@ sql-ledger db conn pararms
 
 host: db <-- db service in stack.yml
 port: 5432 <--- visible within app container
-user: sqlledger
-password: sqlledger
-connect to: sqlledger
+user: sql-ledger
+password: sql-ledger
+connect to: template1
 
