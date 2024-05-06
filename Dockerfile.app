@@ -2,12 +2,11 @@ FROM ubuntu:22.04
 
 ENV locale "en_US"
 ENV timezone "Etc/UTC"
+ENV appname "sql-ledger"
 ENV sourcecode "https://github.com/ch1pp3w4/sql-ledger.git"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   apt-get -y install \
-#acpid \
-#make \
   apache2 \
   build-essential \
   git \
