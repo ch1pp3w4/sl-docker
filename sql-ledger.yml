@@ -18,7 +18,6 @@ services:
       POSTGRES_PASSWORD: sql-ledger
       POSTGRES_DB: template1
     volumes:
-#      - "./data:/var/lib/postgresql/data"
      - db-data:/var/lib/postgresql/data
 
   app:
