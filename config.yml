@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: ch1pp3w4/sl-psql:v.0.0.1@sha256:abbdcf44ffb46fd8ba7d8039bc32c09ef4e07bd1dafc4707b9c8a42064d56461
+    restart: unless-stopped
+    networks:
+      sl-net:
+        ipv4_address: 172.25.0.2
+    ports:
+      - 8032:5432
+    environment:
+      POSTGRES_USER: sql-ledger
+      POSTGRES_PASSWORD: sql-ledger
+      POSTGRES_DB: template1
+    volumes:
+     - db-data:/var/lib/postgresql/data
+
+  app:
+    image: ch1pp3w4/sl-app:v0.0.1@sha256:961aa1a6a10f5e50c71f6d250b0a7b7c99617eb8796c2e88b673d6de6565478e
+    restart: unless-stopped
+    networks:
+      sl-net:
+        ipv4_address: 172.25.0.3
+    ports:
+      - 8080:80
+    depends_on: 
+      - db
+
+networks:
+  sl-net:
+    name: sl-net
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
+
+volumes:
+  db-data: {}
