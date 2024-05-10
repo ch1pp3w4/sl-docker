@@ -67,7 +67,8 @@ RUN mkdir /var/www/html/sql-ledger/spool && \
   /var/www/html/sql-ledger/users \ 
   /var/www/html/sql-ledger/templates \ 
   /var/www/html/sql-ledger/css \
-  /var/www/html/sql-ledger/spool 
+  /var/www/html/sql-ledger/spool && \
+  cp /var/www/html/sql-ledger/sql-ledger.conf.default /var/www/html/sql-ledger/sql-ledger.conf
 
 ADD ./app/index.html /var/www/html/index.html
 
