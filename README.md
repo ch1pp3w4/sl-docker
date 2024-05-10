@@ -33,7 +33,8 @@ Provide instructions on how to install and run your project. Include any prerequ
 ```bash
 git clone https://github.com/ch1pp3w4/sl-docker.git
 cd sl-docker
-docker compose -f config.yml up
+docker compose -f config.yml up```
+
 
 Now, in the web broser point to http://localhost/sql-ledger/admin.pl, to create the database, enter these data:
 - Server: db
