@@ -21,7 +21,7 @@ Ready to take the leap? Try SQL-Ledger now and discover the efficiency and ease 
 - [Contributing](#contributing)
 - [License](#license)
 
-### Prerequisites
+## Prerequisites
 
 - docker
 - git
@@ -33,8 +33,10 @@ Provide instructions on how to install and run your project. Include any prerequ
 ```bash
 git clone https://github.com/ch1pp3w4/sl-docker.git
 cd sl-docker
-docker compose -f config.yml up```
+docker compose -f config.yml up
+```
 
+## Usage
 
 Now, in the web broser point to http://localhost/sql-ledger/admin.pl, to create the database, enter these data:
 - Server: db
@@ -53,8 +55,6 @@ Finally, let's enter your company data (the below data is just for ilustrative p
 - Chart of Accounts: US General (this is a template, you can add/change/delete whatever you want)
 
 Feel free to customize this template to fit your project's specific needs. You can add more sections, such as "Features", "Documentation", or "Support", depending on what's relevant for your project. Additionally, you can include badges, such as license badges or build status badges, to provide additional information to users.
-
-## Usage
 
 Point your web browser to http://localhost/sql-ledger, use your admin user and password previously created.
 
