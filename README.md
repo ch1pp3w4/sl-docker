@@ -1,6 +1,7 @@
 # Dockerized SQL-Ledger 
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-GPL_V3.0.0-blue.svg)](LICENSE) 
+
 
 ## Description
 
