@@ -29,6 +29,8 @@ Ready to take the leap? Try SQL-Ledger now and discover the efficiency and ease 
 - docker
 - git
 
+### Installation
+
 Provide instructions on how to install and run your project. Include any prerequisites and steps for setup.
 
 ```bash
