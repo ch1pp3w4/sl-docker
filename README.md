@@ -31,8 +31,6 @@ Ready to take the leap? Try SQL-Ledger now and discover the efficiency and ease 
 
 ### Installation
 
-Provide instructions on how to install and run your project. Include any prerequisites and steps for setup.
-
 ```bash
 git clone https://github.com/ch1pp3w4/sl-docker.git
 cd sl-docker
@@ -47,7 +45,7 @@ docker compose -f config.yml up
 
 <img src="images/sl02.png" alt="Admin login screen" width="400">
 
-hit the "Loging" button, at this point, there is no password.
+hit the "Login" button, at this point, there is no password.
 
 2. In the "SQL-Ledger Administration" screen:
 
@@ -65,7 +63,7 @@ click over the "Add Dataset" button.
 - Password: sql-ledger
 - Database: template1
 
-Note: those are values that should be using, if you try with others, SQL-Ledger won't get connected to the database container.
+Note: those are values that you should be using, if you try with others, SQL-Ledger won't get connected to the database container.
 
 4. Finally, let's enter your company data (the below data is just for ilustrative purposes):
 
