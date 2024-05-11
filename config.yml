@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   db:
-    image: ch1pp3w4/sl-psql:v.0.0.1@sha256:abbdcf44ffb46fd8ba7d8039bc32c09ef4e07bd1dafc4707b9c8a42064d56461
+    image: postgres:15.12-bookworm@sha256:c516ac417cc045bbeb1738c6ddc9ea0faa5dee101758a4147836c11f76da3e09
     restart: unless-stopped
     networks:
       sl-net:
@@ -18,7 +18,7 @@ services:
      - db-data:/var/lib/postgresql/data
 
   app:
-    image: ch1pp3w4/sl-app:v0.0.1@sha256:961aa1a6a10f5e50c71f6d250b0a7b7c99617eb8796c2e88b673d6de6565478e
+    image: ch1pp3w4/sl-app:v1.0@sha256:921388afecf20a789797e038388e655a9af7297c08083fc1b5df42e38be7e552
     restart: unless-stopped
     networks:
       sl-net:
