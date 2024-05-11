@@ -8,8 +8,9 @@ ENV sourcecode "https://github.com/ch1pp3w4/sql-ledger.git"
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   apt-get -y install \
   apache2 \
-  build-essential \
+  #build-essential \
   git \
+  vim \
   libdbd-pg-perl \
   libdbi-perl \
   libfcgi-perl \
@@ -23,7 +24,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   ssl-cert \
   supervisor \
   texlive \
-  vim \
   locales \
   ca-certificates \
   --no-install-recommends && \
