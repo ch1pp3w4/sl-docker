@@ -39,34 +39,62 @@ docker compose -f config.yml up
 
 ## Usage
 
-### Additional setup commands
+### Setting up your Company data
 
-Now, in the web broser point to http://localhost/sql-ledger/admin.pl, to create the database, enter these data:
-- Server: db
+1. Now, in the web broser point to http://localhost/sql-ledger/admin.pl, to create the database, enter these data:
+
+<img src="images/sl02.png" alt="Admin login screen" width="400">
+
+hit the <<Loging>> button, at this point, there is no password.
+
+2. In the "SQL-Ledger Administration" screen:
+
+<img src="images/sl03.png" alt="SQL-Ledger Administration" width="400">
+
+click over the "Add Dataset" button.
+
+3. Enter the connection data to the database:
+
+<img src="images/sl04.png" alt="SQL-Ledger / Add Dataset" width="400">
+
+- Host: db
 - Port: 5432    
 - User: sql-ledger
 - Password: sql-ledger
 - Database: template1
 
-Finally, let's enter your company data (the below data is just for ilustrative purposes):
-- Company id: demo
-- Company name: My Demo Company LLC
-- Admin: admin
-- Admin password: admin (only numbers and letters, uppercase and lowercase)
-- Charset: 
-- Chart of Accounts: US General (this is a template, you can add/change/delete whatever you want)
+Note: those are values that should be used, if you try with others, SQL-Ledger won't get connected to the database container.
 
-<img src="images/sl06.png" alt="Logo" width="400">
+4. Finally, let's enter your company data (the below data is just for ilustrative purposes):
 
-Feel free to customize this template to fit your project's specific needs. You can add more sections, such as "Features", "Documentation", or "Support", depending on what's relevant for your project. Additionally, you can include badges, such as license badges or build status badges, to provide additional information to users.
+<img src="images/sl06.png" alt="SQL-Ledger / Create Dataset" width="400">
 
-Point your web browser to http://localhost/sql-ledger, use your admin user and password previously created.
+- Dataset: demo (this will be the database identificator for your company)
+- Company: My Demo Company LLC (your company's name)
+- Administrator: admin (system administration user, tipically admin, superuser, sysadmin, it is up to you...)
+- E-mail: admin@gmail.com (system administrator email address)
+- Password: admin (only numbers and letters, uppercase and lowercase)
+- Templates: Default (these are documents templates in different languages, Default is English) 
+- Multibyte Encoding: Unicode (UTF-8) (in this global world, there are multiple symbols, this technical piece supports that)
+- Create Chart of Accounts: US General (this is a template, click over the dropdown list, you can change it to whatever you want)
 
-This is an overview of usage per function: https://sql-ledger.com/cgi-bin/nav.pl?page=feature/index.html&title=Features
+Click over the <<Continue>> button. 
 
-If you want to get a user guide, you can buy the official version here: https://sql-ledger.com/cgi-bin/nav.pl?page=misc/documentation.html&title=documentation
+Control will be back into the "SQL-Ledger Administration" screen, just click on <<Logout>>
+
+5. Point your web browser to http://localhost/sql-ledger, use your administrative user and password previously created.
+
+<img src="images/sl08.png" alt="SQL-Ledger Login screen" width="400">
+
+Hit the <<Login>> button, **there you go!**
+
+<img src="images/sl09.png" alt="Logo" width="400">
 
 ## Support
+
+For an overview of usage of each SQL-Ledger feature, click [here](https://sql-ledger.com/cgi-bin/nav.pl?page=feature/index.html&title=Features)
+
+If you want to get a user guide, you can buy the official version [here](https://sql-ledger.com/cgi-bin/nav.pl?page=misc/documentation.html&title=documentation)
 
 These some experts that can provide support:
 
