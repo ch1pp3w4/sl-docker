@@ -58,6 +58,9 @@ Finally, let's enter your company data (the below data is just for ilustrative p
 
 ![Company Data](images/sl06.png)
 
+![Another image](<img src="images/sl06.png" alt="Logo" width="200" height="100">)
+
+
 Feel free to customize this template to fit your project's specific needs. You can add more sections, such as "Features", "Documentation", or "Support", depending on what's relevant for your project. Additionally, you can include badges, such as license badges or build status badges, to provide additional information to users.
 
 Point your web browser to http://localhost/sql-ledger, use your admin user and password previously created.
