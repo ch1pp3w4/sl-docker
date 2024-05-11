@@ -1,9 +1,0 @@
-FROM postgres:14
-#RUN chown -R postgres:postgres /var/lib/postgresql
-#ENV PGDATA /var/lib/postgresql/data
-#USER postgres
-#RUN whoami
-#ADD ./scripts/init.sql /docker-entrypoint-initdb.d/
-#ENTRYPOINT ["docker-entrypoint.sh"]
-#EXPOSE 5432
-#CMD ["postgres"]
