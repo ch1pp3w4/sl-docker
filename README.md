@@ -45,7 +45,7 @@ docker compose -f config.yml up
 
 <img src="images/sl02.png" alt="Admin login screen" width="400">
 
-hit the <<Loging>> button, at this point, there is no password.
+hit the "Loging" button, at this point, there is no password.
 
 2. In the "SQL-Ledger Administration" screen:
 
@@ -63,34 +63,36 @@ click over the "Add Dataset" button.
 - Password: sql-ledger
 - Database: template1
 
-Note: those are values that should be used, if you try with others, SQL-Ledger won't get connected to the database container.
+Note: those are values that should be using, if you try with others, SQL-Ledger won't get connected to the database container.
 
 4. Finally, let's enter your company data (the below data is just for ilustrative purposes):
 
 <img src="images/sl06.png" alt="SQL-Ledger / Create Dataset" width="400">
 
-- Dataset: demo (this will be the database identificator for your company)
+- Dataset: demo (this will be the database identificator for your company, change it to something that makes sense to you)
 - Company: My Demo Company LLC (your company's name)
 - Administrator: admin (system administration user, tipically admin, superuser, sysadmin, it is up to you...)
 - E-mail: admin@gmail.com (system administrator email address)
-- Password: admin (only numbers and letters, uppercase and lowercase)
-- Templates: Default (these are documents templates in different languages, Default is English) 
-- Multibyte Encoding: Unicode (UTF-8) (in this global world, there are multiple symbols, this technical piece supports that)
-- Create Chart of Accounts: US General (this is a template, click over the dropdown list, you can change it to whatever you want)
+- Password: ***** (only numbers and letters, uppercase and lowercase)
+- Templates: Default (these are document templates in different languages, Default is English) 
+- Multibyte Encoding: Unicode (UTF-8) (in this global world, there are multiple symbols, this technical piece supports those...)
+- Create Chart of Accounts: US General (this is an example for illustrative purposes, click over the dropdown list, you can change it to whatever you want...)
 
-Click over the <<Continue>> button. 
+Click over the "Continue" button. 
 
-Control will be back into the "SQL-Ledger Administration" screen, just click on <<Logout>>
+Control will be back into the "SQL-Ledger Administration" screen, just click on "Logout"
 
 5. Point your web browser to http://localhost/sql-ledger, use your administrative user and password previously created.
 
 <img src="images/sl08.png" alt="SQL-Ledger Login screen" width="400">
 
-Hit the <<Login>> button, **there you go!**
+Hit the "Login" button, **there you go!**
 
 <img src="images/sl09.png" alt="Logo" width="400">
 
 ## Support
+
+### SQL-Ledger
 
 For an overview of usage of each SQL-Ledger feature, click [here](https://sql-ledger.com/cgi-bin/nav.pl?page=feature/index.html&title=Features)
 
@@ -101,6 +103,10 @@ These some experts that can provide support:
 - Company Name 01
 - Company Name 03
 - Company Name 03
+
+### Docker setup
+
+Create an issue [here](http://localhost/pull_request)
 
 ## Contributing
 
