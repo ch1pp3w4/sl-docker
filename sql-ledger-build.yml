@@ -3,11 +3,12 @@ version: '3.8'
 services:
 
   db:
-    image: sl-psql:latest
+    # image: sl-psql:latest
+    image: postgres:14.12-bookworm@sha256:c516ac417cc045bbeb1738c6ddc9ea0faa5dee101758a4147836c11f76da3e09
     restart: unless-stopped
-    build:
-      context: .
-      dockerfile: ./Dockerfile.psql
+    # build:
+    #   context: .
+    #   dockerfile: ./Dockerfile.psql
     networks:
       sl-net:
         ipv4_address: 172.25.0.2
