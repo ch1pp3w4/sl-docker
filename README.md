@@ -56,11 +56,7 @@ Finally, let's enter your company data (the below data is just for ilustrative p
 - Charset: 
 - Chart of Accounts: US General (this is a template, you can add/change/delete whatever you want)
 
-![Company Data](images/sl06.png)
-
-![Another image](<img src="images/sl06.png" alt="Logo" width="200" height="100">)
-<img src="images/sl06.png" alt="Logo" width="200" height="100">
-
+<img src="images/sl06.png" alt="Logo" width="400">
 
 Feel free to customize this template to fit your project's specific needs. You can add more sections, such as "Features", "Documentation", or "Support", depending on what's relevant for your project. Additionally, you can include badges, such as license badges or build status badges, to provide additional information to users.
 
