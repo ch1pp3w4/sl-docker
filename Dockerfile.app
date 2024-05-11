@@ -20,16 +20,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   librose-db-object-perl \
   librose-db-perl \
   librose-object-perl \
-#  nano \
-#  sed \
-#  ssh \
-#  ssl-cert \
-#  sudo \
+  ssl-cert \
   supervisor \
   texlive \
   vim \
   locales \
-#  wget \
   ca-certificates \
   --no-install-recommends && \
   update-ca-certificates && \
