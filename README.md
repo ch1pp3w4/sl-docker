@@ -61,7 +61,7 @@ Click on the "Add Dataset" button.
 - Port: 5432    
 - User: sql-ledger
 - Password: sql-ledger
-- Database: template1
+- Connect to: template1
 
 Note: those are values that you should use; otherwise, SQL-Ledger won't get connected to the database container.
 
