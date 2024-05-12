@@ -41,17 +41,17 @@ docker compose -f config.yml up
 
 ### Setting up your Company data
 
-1. Now, in the web broser point to http://localhost/sql-ledger/admin.pl, to create the database, enter these data:
+1. Now, in the web broser point to http://localhost/sql-ledger/admin.pl, to create the database. Enter the following data:
 
 <img src="images/sl02.png" alt="Admin login screen" width="400">
 
-hit the "Login" button, at this point, there is no password.
+Click the "Login" button, at this point, there is no password.
 
 2. In the "SQL-Ledger Administration" screen:
 
 <img src="images/sl03.png" alt="SQL-Ledger Administration" width="400">
 
-click over the "Add Dataset" button.
+Click on the "Add Dataset" button.
 
 3. Enter the connection data to the database:
 
@@ -63,32 +63,32 @@ click over the "Add Dataset" button.
 - Password: sql-ledger
 - Database: template1
 
-Note: those are values that you should be using, if you try with others, SQL-Ledger won't get connected to the database container.
+Note: those are values that you should use; otherwise, SQL-Ledger won't get connected to the database container.
 
-4. Finally, let's enter your company data (the below data is just for ilustrative purposes):
+4. Finally, enter your company data (the below data is just for ilustrative purposes):
 
 <img src="images/sl06.png" alt="SQL-Ledger / Create Dataset" width="400">
 
-- Dataset: demo (this will be the database identificator for your company, change it to something that makes sense to you)
+- Dataset: demo (this will be the database identificator for your company, change it to something that makes sense to you...)
 - Company: My Demo Company LLC (your company's name)
 - Administrator: admin (system administration user, tipically admin, superuser, sysadmin, it is up to you...)
 - E-mail: admin@gmail.com (system administrator email address)
-- Password: ***** (only numbers and letters, uppercase and lowercase)
-- Templates: Default (these are document templates in different languages, Default is English) 
+- Password: ***** (only numbers and letters, uppercase, and lowercase)
+- Templates: Default (these are document templates in different languages; Default is English) 
 - Multibyte Encoding: Unicode (UTF-8) (in this global world, there are multiple symbols, this technical piece supports those...)
-- Create Chart of Accounts: US General (this is an example for illustrative purposes, click over the dropdown list, you can change it to whatever you want...)
+- Create Chart of Accounts: US General (this is an example for illustrative purposes, click on the dropdown list, you can change it to whatever you want...)
 
 Click over the "Continue" button. 
 
-Control will be back into the "SQL-Ledger Administration" screen, just click on "Logout"
+Control will be back into the "SQL-Ledger Administration" screen; just click on "Logout".
 
-5. Point your web browser to http://localhost/sql-ledger, use your administrative user and password previously created.
+5. Go to http://localhost/sql-ledger in your web browser, and use your administrative user and password previously created.
 
 <img src="images/sl08.png" alt="SQL-Ledger Login screen" width="400">
 
 Hit the "Login" button, **there you go!**
 
-<img src="images/sl09.png" alt="Logo" width="400">
+<img src="images/sl09.png" alt="SQL-Ledger main manu" width="400">
 
 ## Support
 
@@ -98,7 +98,7 @@ For an overview of usage of each SQL-Ledger feature, click [here](https://sql-le
 
 If you want to get a user guide, you can buy the official version [here](https://sql-ledger.com/cgi-bin/nav.pl?page=misc/documentation.html&title=documentation)
 
-These some experts that can provide support:
+These are some experts that can provide support:
 
 - Company Name 01
 - Company Name 03
