@@ -5,7 +5,7 @@
 
 ## Description
 
-[SQL-Ledger](https://sql-ledger.com) is a effortless business management application: intuitive and powerful. Seamlessly handle orders, invoices, inventory, and more with precision and ease.
+[SQL-Ledger](https://sql-ledger.com/cgi-bin/nav.pl?page=misc/terms.html&title=Legal%20Stuff) is a effortless business management application: intuitive and powerful. Seamlessly handle orders, invoices, inventory, and more with precision and ease.
 
 Revolutionize your business management with SQL-Ledger, the dynamic web-based solution. Whether you're on a Mac, Windows or Linux system, experience seamless integration and unparalleled functionality.
 
