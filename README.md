@@ -20,14 +20,15 @@ Ready to take the leap? Try SQL-Ledger now and discover the efficiency and ease 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Support](#support)
 - [License](#license)
 
 ## Installation
 
 ### Prerequisites
 
-- docker
-- git
+- [Docker](https://docs.docker.com/get-docker/)
+- [git](https://git-scm.com/downloads)
 
 ### Installation
 
@@ -100,16 +101,16 @@ If you want to get a user guide, you can buy the official version [here](https:/
 
 These are some experts that can provide support:
 
-- Company Name 01
+- [DWS Systems Inc](https://sql-ledger.com/cgi-bin/nav.pl?page=misc/terms.html&title=Legal%20Stuff)
 - Company Name 03
 - Company Name 03
 
 ### Docker setup
 
-Create an issue [here](http://localhost/pull_request)
+Create an issue [here](https://github.com/ch1pp3w4/sl-docker/issues)
 
 ## Contributing
 
-Contributions to this repository are welcome, create yuor pull request [here](http://localhost/pull_request)
+Contributions to this repository are welcome, create yuor pull request [here](https://github.com/ch1pp3w4/sl-docker/pulls)
 
 ## License
